@@ -66,7 +66,7 @@ const onClick =()=>{
      
         <div className="messageChat">
             {
-              msgs.map((msg) => {
+              msgs?.map((msg) => {
                 return (
                     <div key={msg.message_id}>
                       <div className={msg.side === "right" ? "right-side" : "left-side message"}>

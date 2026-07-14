@@ -18,7 +18,7 @@ const SidebarThread = () => {
     return (
         <> 
         {
-         sidebarContacts.map((contact, id) => {
+         sidebarContacts?.map((contact, id) => {
             return (
                 <Link to={`/contacts/${contact.id}/${slugGenerator(contact.name)}`} key={contact.id.toString()}
                     className="sidebar-thread">
