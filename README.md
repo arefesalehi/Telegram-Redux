@@ -72,17 +72,6 @@ Base URL
 http://localhost:7000
 ```
 
-Available endpoints
-
-```http
-GET     /friends
-GET     /messages
-POST    /messages
-PUT     /messages/:id
-DELETE  /messages/:id
-```
-
----
 
 # 🧠 Project Highlights
 
@@ -91,7 +80,6 @@ This project demonstrates:
 - Redux Toolkit architecture
 - Global state management
 - REST API integration
-- CRUD operations
 - Async actions
 - Component-based architecture
 - Chat UI implementation
@@ -121,12 +109,14 @@ src
 
 # 🚧 Future Improvements
 
-- User Authentication
+
 - File & Image Sharing
 - Voice Messages
 - Read Receipts
 - Dark Mode
 - Notification System
+- Attach file
+- Add location
 
 ---
 
@@ -142,9 +132,9 @@ A second version of this application is available that implements **real-time me
 
 Frontend Developer
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/arefesalehi
 
-LinkedIn: https://linkedin.com/in/yourprofile
+LinkedIn: https://linkedin.com/in/arefesalehi
 
 ---
 
