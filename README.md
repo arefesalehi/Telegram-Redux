@@ -5,7 +5,7 @@ A modern Telegram-inspired chat application built with **React**, **Redux Toolki
 This project focuses on **state management**, **REST API integration**, and **building a scalable chat interface**. It simulates a messaging experience by automatically generating predefined replies after a short delay, providing an interactive chat flow without requiring a real-time backend.
 
 <p align="center">
-  <img src="./40.png" alt="Telegram Clone">
+  <img src="./public/40.png" alt="Telegram Clone">
 </p>
 
 ---
