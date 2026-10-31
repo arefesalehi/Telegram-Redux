@@ -2,7 +2,9 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    width: 100%;
+    width: 0;
+    min-width: 0;
+    min-height: 0;
     position: relative;
     background-color: #1F2034;
 }

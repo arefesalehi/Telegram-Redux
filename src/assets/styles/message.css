@@ -1,12 +1,15 @@
 .messageChat {
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    flex: 1;
+    min-height: 0;
     padding:10px 2px;
     width: 100%;
     color:white;
-    overflow:scroll;
-    margin-bottom: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 70px;
+    overscroll-behavior: contain;
 }
 
 .message{ 
@@ -26,6 +29,8 @@
     padding: 10px ;  
     text-align: justify; 
     width: fit-content;
+    max-width: min(82%, 520px);
+    overflow-wrap: anywhere;
 }
 
 .message2{
@@ -46,7 +51,9 @@
     padding: 10px ; 
     width: fit-content;
     text-align: left;
-    margin-left: 100px;
+    margin-left: auto;
+    max-width: min(82%, 520px);
+    overflow-wrap: anywhere;
 }
 
 
@@ -86,6 +93,12 @@
     display: none;
 }
 
+@media (max-width: 760px) {
+    .messageChat { padding: 8px 4px 70px; }
+    .left-side { margin-left: 6px; }
+    .right-side { margin-right: 6px; }
+}
+
 .message-info h4 {
     color: #8193E7;
 }
@@ -107,4 +120,4 @@
     display: flex;
     max-width: max-content;
 } */
-   
+

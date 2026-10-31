@@ -1,8 +1,27 @@
 .telegram {
-    width: 60%;
-    height: 90vh;
+    width: min(100%, 1280px);
+    height: min(900px, calc(100vh - 56px));
+    height: min(900px, calc(100dvh - 56px));
+    min-height: 420px;
     background-color:#1f1f1f;
     display: flex;
-    justify-content: center;
     margin: 0 auto;
+    overflow: hidden;
+}
+
+@media (max-width: 760px) {
+    .telegram {
+        width: 100%;
+        height: calc(100vh - 42px);
+        height: calc(100dvh - 42px);
+        min-height: 0;
+    }
+
+    .telegram.is-chat-open .sidebar { display: none; }
+    .telegram.is-chat-open .chatside { display: flex; }
+    .telegram:not(.is-chat-open) .chatside { display: none; }
+}
+
+@media (min-width: 761px) and (max-width: 1050px) {
+    .telegram { width: 94%; }
 }

@@ -9,6 +9,12 @@
 
 body {
   background-color: lightgray;
+  min-width: 320px;
+}
+
+.app-shell {
+  width: 100%;
+  padding-top: 8px;
 }
 
 .App {
@@ -25,33 +31,17 @@ font-size: 20px;
 }
 
 
-@media screen and (max-width:574px) {
-  .chatsideHeader-right button ,.sidebarThread-detail  {
-    display: none;
+@media (max-width: 760px) {
+  .app-shell { padding-top: 0; }
+  .app-shell > h3 {
+    height: 34px;
+    padding-top: 6px;
+    font-size: 17px;
   }
 }
 
-
-@media screen and (max-width:925px) {
-  .sidebarThread-detail small {
-    display: none;
-  }
-  .sidebarThread-detail div {
-    display: none;
-  }
-
-
-}
-@media screen and (max-width:559px) {
- .ant-input-affix-wrapper sidebar-input{
-  display: none;
- }
-
-}
-
-@media screen and (max-width:780px) {
-  .ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light leftside-dropdown{
-    display: none;
-  }
-
+@media (max-width: 380px) {
+  .sidebarThread-timeStamp { right: 8px; }
+  .sidebarThread-detail { margin-left: 10px; }
+  .sidebarThread-detail div { max-width: 95%; }
 }

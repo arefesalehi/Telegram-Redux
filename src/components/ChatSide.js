@@ -6,9 +6,7 @@ import Home from '../pages/Home/index';
 
 const ChatSide = () => {
   return (
-    <>
-        <div className='chatside'></div>
-         
+    <div className='chatside'>
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route path="/contacts/*" element={<ChatSideContent />}>
@@ -16,8 +14,7 @@ const ChatSide = () => {
               <Route path="/contacts/*/:id/:slug" element={<ChatSideContent />} />
           </Route>
         </Routes>
-
-    </>  
+    </div>
   )
 }
 

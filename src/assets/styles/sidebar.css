@@ -1,11 +1,13 @@
 .sidebar{
     display: flex;
-    flex: 0.32;
+    flex: 0 0 320px;
     flex-direction: column;
     background-color:#282945;   
     border-right: 2px solid #22233F;
     position: relative;
     width: 32%;
+    min-width: 0;
+    min-height: 0;
 }
 
 
@@ -16,7 +18,8 @@
     border-bottom: 1px solid#22233F;
     height: 50px;
     color: white;
-    margin-left: 13px;   
+    margin: 0 10px 0 13px;
+    min-width: 0;
 }
 
 
@@ -27,6 +30,7 @@
     border-radius: 80px;
     background-color: #1F2034;
     border-color: transparent; 
+    min-width: 0;
 }
 
 .sidebar-button{
@@ -75,8 +79,28 @@
 }
 
 .sidebarthread-content{
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     flex: 1;
+    min-height: 0;
+}
+
+@media (max-width: 1050px) and (min-width: 761px) {
+    .sidebar { flex-basis: 290px; }
+}
+
+@media (max-width: 760px) {
+    .sidebar {
+        flex: 1 1 100%;
+        width: 100%;
+        border-right: 0;
+    }
+    .sidebar-header {
+        height: 56px;
+        margin-left: 8px;
+    }
+    .sidebar-input { width: min(68vw, 360px); }
+    .sidebar-bottom { bottom: 16px; right: 16px; }
 }
 
 .sidebarthread-content::-webkit-scrollbar{
