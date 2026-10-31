@@ -1,5 +1,6 @@
 import {MenuOutlined, SettingOutlined, UserOutlined, BugOutlined, PlusCircleOutlined, SaveOutlined, DownloadOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { Button, Menu, Dropdown, Space } from 'antd';
+import { useState } from 'react';
 import '../assets/styles/leftside.css';
 
 
@@ -88,15 +89,29 @@ const menu = (
 );
 
 const App = () => (
-  <Space direction="vertical">
-    <Space wrap>
-      <Dropdown className='overlay'  overlay={menu} placement="bottomLeft">
-        <Button className='sidebar-button' type='text' >
-          <MenuOutlined  />
-        </Button>
-      </Dropdown>
-    </Space>
-  </Space>
+  <LeftSideMenu />
 );
+
+const LeftSideMenu = () => {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <Space direction="vertical">
+      <Space wrap>
+        <Dropdown
+          className="overlay"
+          overlay={menu}
+          placement="bottomLeft"
+          visible={visible}
+          onVisibleChange={setVisible}
+        >
+          <Button className="sidebar-button" type="text" aria-label="Open menu">
+            <MenuOutlined />
+          </Button>
+        </Dropdown>
+      </Space>
+    </Space>
+  );
+};
 
 export default App;
