@@ -20,7 +20,7 @@ const Message = () => {
   const getMsg = async () => {
     try {
       const { data } = await axios({
-        url: `http://localhost:7000/friends/${id}`,
+        url: `${process.env.REACT_APP_API_URL}/friends/${id}`,
       });
       setMsgs(data.chatlog);
     } catch (error) {

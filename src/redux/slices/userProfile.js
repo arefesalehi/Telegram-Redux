@@ -1,14 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import localDatabase from "../../db.json";
 export const getUserProfile = createAsyncThunk("userProfile/getUserProfile", async () => {
     try {
       const response = await axios({
-        url: "http://localhost:7000/friends",
+        url: `${process.env.REACT_APP_API_URL}/friends`,
         method: "GET",
       });
-      return (response.data);
+      return response.data?.length ? response.data : localDatabase.friends;
       } catch (error) {
-        console.log(error);
+        console.warn("Using bundled profiles because the API is unavailable.", error);
+        return localDatabase.friends;
        }
       }
     );

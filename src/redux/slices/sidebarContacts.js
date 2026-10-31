@@ -1,15 +1,17 @@
 import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
+import localDatabase from '../../db.json';
 export const getSidebarContacts= createAsyncThunk('contacts/getSidebarContacts', async()=>{
 
     try {
         const response = await axios ({
-            url:"http://localhost:7000/profile",
+            url:`${process.env.REACT_APP_API_URL}/profile`,
             method: 'GET'
         })
-        return(response.data.friends)
+        return response.data.friends || localDatabase.profile.friends;
     }catch (error) {
-      console.log(error);
+      console.warn('Using bundled contacts because the API is unavailable.', error);
+      return localDatabase.profile.friends;
     }
   });
  

@@ -8,6 +8,7 @@ import HeaderChat from "./HeaderChat";
 import "../assets/styles/message.css";
 import "../assets/styles/chatsidecontent.css";
 import axios from "axios";
+import localDatabase from "../db.json";
 
 
 const ChatSideContent = () => {
@@ -38,11 +39,13 @@ const ChatSideContent = () => {
   const getMsg = async () => {
     try {
         const { data } = await axios({
-        url: `http://localhost:7000/friends/${id}`,
+        url: `${process.env.REACT_APP_API_URL}/friends/${id}`,
       });
-        setMsgs(data.chatlog.reverse());
+        setMsgs((data.chatlog || []).slice().reverse());
         } catch (error) {
-        console.log(error);
+        const localContact = localDatabase.friends.find((friend) => friend.id === Number(id));
+        setMsgs(localContact?.chatlog?.slice().reverse() || []);
+        console.warn("Using bundled chat history because the API is unavailable.", error);
     }   
   };
 
