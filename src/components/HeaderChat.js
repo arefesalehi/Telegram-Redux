@@ -35,7 +35,7 @@ const HeaderChat =  (props) => {
   return (
     <div className="chatside-header">
       <Space>
-        <ContactAvatar key={contact.id} name={contact.name} picture={contact.picture} id={contact.id} />
+        <ContactAvatar key={contact.id} name={contact.name} picture={contact.picture} id={contact.id} forceFallback={[11, 13].includes(Number(contact.id))} />
         <div className="chatsideheader-profile">
           <h4>{contact.name}</h4>
           <p>{"online"}</p>

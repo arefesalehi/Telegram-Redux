@@ -10,6 +10,27 @@ import "../assets/styles/chatsidecontent.css";
 import axios from "axios";
 import localDatabase from "../db.json";
 
+const formatMessageTime = (timestamp) => {
+  const date = new Date(timestamp);
+  if (Number.isNaN(date.getTime())) {
+    const normalized = String(timestamp || "").replace(/[۰-۹٠-٩]/g, (digit) => {
+      const persianDigit = "۰۱۲۳۴۵۶۷۸۹".indexOf(digit);
+      return String(persianDigit >= 0 ? persianDigit : "٠١٢٣٤٥٦٧٨٩".indexOf(digit));
+    });
+    const time = normalized.match(/(?:^|[,،]\s*|\s)(\d{1,2}):(\d{2})(?::\d{2})?\s*(AM|PM)?\s*$/i);
+    if (!time) return normalized;
+
+    let hours = Number(time[1]);
+    if (time[3]) hours = (hours % 12) + (time[3].toUpperCase() === "PM" ? 12 : 0);
+    return `${String(hours).padStart(2, "0")}:${time[2]}`;
+  }
+
+  return new Intl.DateTimeFormat(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date);
+};
+
 
 const ChatSideContent = () => {
 
@@ -62,9 +83,9 @@ const onClick =()=>{
   if(!text.trim()){
     return;
   }else{
-    dispatch(ADD_MESSAGE({id , text ,side:'right', timestamp:new Date().toLocaleString()}))
+    dispatch(ADD_MESSAGE({id , text ,side:'right', timestamp:new Date().toISOString()}))
     setTimeout(() => {
-      dispatch(ADD_MESSAGE({id , text:"Message recieved" ,side: 'left' , timestamp:new Date().toLocaleString()}))
+      dispatch(ADD_MESSAGE({id , text:"Message recieved" ,side: 'left' , timestamp:new Date().toISOString()}))
     },2000) 
     setText(' ')
   }
@@ -95,7 +116,7 @@ const onClick =()=>{
                     <div className={message.side === "left" ? " message" : "message2"} key={index.toString()}>
                         <div className={message.side === "left" ? "left-side message" : " right-side"} >
                           <p>{message.text}</p>
-                          <span> <small>{new Date(message.timestamp).getHours() + ":" + new Date(message.timestamp).getMinutes()}</small> </span>
+                          <span> <small>{formatMessageTime(message.timestamp)}</small> </span>
                         </div>
                     </div>
                 );

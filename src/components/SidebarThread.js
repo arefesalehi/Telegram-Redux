@@ -23,7 +23,7 @@ const SidebarThread = () => {
             return (
                 <Link to={`/contacts/${contact.id}/${slugGenerator(contact.name)}`} key={contact.id.toString()}
                     className="sidebar-thread">
-                        <ContactAvatar className="avatar" name={contact.name} picture={contact.picture} id={contact.id} />
+                        <ContactAvatar className="avatar" name={contact.name} picture={contact.picture} id={contact.id} forceFallback={[11, 13].includes(Number(contact.id))} />
                         <div className="sidebarThread-detail">
                             <h4>{contact.name}</h4>
                             <div>{contact.lastChat}</div>
