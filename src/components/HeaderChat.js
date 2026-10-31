@@ -25,14 +25,19 @@ const HeaderChat =  (props) => {
     return (<div></div>);
   }
 
-  const data = userProfile.filter(value=> value.id === userId)
+  const profiles = Array.isArray(userProfile) ? userProfile : [];
+  const contact = profiles.find((value) => Number(value.id) === userId);
+
+  if (!contact) {
+    return <div className="chatside-header" />;
+  }
 
   return (
     <div className="chatside-header">
       <Space>
-        <Image src={data[0].picture} max-width='50%' alt="pic" />
+        <Image src={contact.picture} max-width='50%' alt="pic" />
         <div className="chatsideheader-profile">
-          <h4>{data[0].name}</h4>
+          <h4>{contact.name}</h4>
           <p>{"online"}</p>
         </div>
       </Space>
