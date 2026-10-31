@@ -11,7 +11,7 @@ const menu = (
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
             <Space>
-              <Button><SaveOutlined /></Button>
+              <SaveOutlined />
               <span>saved message</span>
             </Space>
           </a>
@@ -22,7 +22,7 @@ const menu = (
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
            <Space>
-              <Button><SettingOutlined /></Button>
+              <SettingOutlined />
               <span>Setting</span>
            </Space>
           </a>
@@ -33,7 +33,7 @@ const menu = (
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
             <Space>
-              <Button><DownloadOutlined /></Button>
+              <DownloadOutlined />
               <span>Archived chats</span>
             </Space>
           </a>
@@ -44,7 +44,7 @@ const menu = (
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
             <Space>
-              <Button><UserOutlined /></Button>
+              <UserOutlined />
               <span>contact</span>
             </Space>
           </a>
@@ -55,7 +55,7 @@ const menu = (
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
             <Space>
-              <Button><BugOutlined /></Button>
+              <BugOutlined />
               <span>report bug</span>
             </Space>
           </a>
@@ -66,7 +66,7 @@ const menu = (
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
             <Space>
-              <Button><QuestionCircleOutlined /></Button>
+              <QuestionCircleOutlined />
               <span>Telegram Features</span>
             </Space>
           </a>
@@ -77,7 +77,7 @@ const menu = (
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
             <Space>
-              <Button><PlusCircleOutlined /></Button>
+              <PlusCircleOutlined />
               <span>Install App</span>
             </Space>
           </a>
