@@ -25,7 +25,7 @@ const ChatSideContent = () => {
   },[messagelist])
 
  
-  useEffect((id) => {
+  useEffect(() => {
     getMsg();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
@@ -37,14 +37,22 @@ const ChatSideContent = () => {
 
   
   const getMsg = async () => {
+    const localContact = localDatabase.friends.find((friend) => friend.id === Number(id));
+    const sidebarContact = localDatabase.profile.friends.find((friend) => friend.id === Number(id));
+    const localChatlog = localContact?.chatlog?.length
+      ? localContact.chatlog
+      : sidebarContact?.lastChat
+        ? [{ message_id: `preview-${id}`, text: sidebarContact.lastChat, side: "left", timestamp: sidebarContact.latest_timestamp }]
+        : [];
     try {
         const { data } = await axios({
         url: `${process.env.REACT_APP_API_URL}/friends/${id}`,
       });
-        setMsgs((data.chatlog || []).slice().reverse());
+        const remoteChatlog = Array.isArray(data?.chatlog) ? data.chatlog : [];
+        const chatlog = remoteChatlog.length ? remoteChatlog : localChatlog;
+        setMsgs(chatlog.slice().reverse());
         } catch (error) {
-        const localContact = localDatabase.friends.find((friend) => friend.id === Number(id));
-        setMsgs(localContact?.chatlog?.slice().reverse() || []);
+        setMsgs(localChatlog.slice().reverse());
         console.warn("Using bundled chat history because the API is unavailable.", error);
     }   
   };

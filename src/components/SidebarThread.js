@@ -3,6 +3,7 @@ import {slugGenerator} from "../helpers/slug";
 import {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {getSidebarContacts} from "../redux/slices/sidebarContacts";
+import ContactAvatar from "./ContactAvatar";
 
 
 
@@ -22,7 +23,7 @@ const SidebarThread = () => {
             return (
                 <Link to={`/contacts/${contact.id}/${slugGenerator(contact.name)}`} key={contact.id.toString()}
                     className="sidebar-thread">
-                        <img className="avatar" src={contact.picture} alt="pic"/>
+                        <ContactAvatar className="avatar" name={contact.name} picture={contact.picture} id={contact.id} />
                         <div className="sidebarThread-detail">
                             <h4>{contact.name}</h4>
                             <div>{contact.lastChat}</div>

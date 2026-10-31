@@ -31,6 +31,24 @@
     border-radius: 50%;
 }
 
+.contact-avatar{
+    width: 45px;
+    height: 45px;
+    flex: 0 0 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.contact-avatar-fallback{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    user-select: none;
+}
+
 .sidebarThread-detail {
     margin-left: 15px;
     width: 100%;

@@ -1,11 +1,11 @@
 import { PhoneFilled ,SearchOutlined} from "@ant-design/icons";
-import { Image } from 'antd';
 import RightSide from "./RightSide";
 import { Space } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getUserProfile } from "../redux/slices/userProfile";
 import '../assets/styles/headerchat.css'
+import ContactAvatar from "./ContactAvatar";
 
 
 
@@ -35,7 +35,7 @@ const HeaderChat =  (props) => {
   return (
     <div className="chatside-header">
       <Space>
-        <Image src={contact.picture} max-width='50%' alt="pic" />
+        <ContactAvatar key={contact.id} name={contact.name} picture={contact.picture} id={contact.id} />
         <div className="chatsideheader-profile">
           <h4>{contact.name}</h4>
           <p>{"online"}</p>
